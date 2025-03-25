@@ -1,0 +1,110 @@
+@startuml
+
+entity Users {
+    +UserID : Unique ID [PK]
+    --
+    Name : String
+    Email : String
+    Password : String
+    ProfilePicture : String
+    CNIC : Number [Unique]
+    UserType : String (Alumni, Student, HiringManager, Admin)
+    WorkHistory : Text
+    Education : Text
+    Skills : Text
+}
+
+entity Jobs {
+    +JobID : Unique ID [PK]
+    --
+    Title : String
+    Description : Text
+    Company : String
+    Location : String
+    PostedBy : Unique ID [FK -> Users.UserID]
+    Status : String (Pending/Approved)
+}
+
+entity Applications {
+    +ApplicationID : Unique ID [PK]
+    --
+    UserID : Unique ID [FK -> Users.UserID]  ' Alumni & Students can apply
+    JobID : Unique ID [FK -> Jobs.JobID]
+    Status : String
+}
+
+entity Events {
+    +EventID : Unique ID [PK]
+    --
+    Title : String
+    Description : Text
+    Date : DateTime
+    Location : String
+    OrganizerID : Unique ID [FK -> Users.UserID]
+    Status : String (Pending/Approved)
+}
+
+entity Participants {
+    +ParticipantID : Unique ID [PK]
+    --
+    UserID : Unique ID [FK -> Users.UserID]
+    EventID : Unique ID [FK -> Events.EventID]
+}
+
+entity Chats {
+    +ChatID : Unique ID [PK]
+    --
+    Type : String (Group/Private)
+    CreatedAt : DateTime
+}
+
+entity Messages {
+    +MessageID : Unique ID [PK]
+    --
+    ChatID : Unique ID [FK -> Chats.ChatID]
+    SenderID : Unique ID [FK -> Users.UserID]
+    Content : Text
+    Timestamp : DateTime
+}
+
+entity Announcements {
+    +AnnouncementID : Unique ID [PK]
+    --
+    Title : String
+    Content : Text
+    CreatedBy : Unique ID [FK -> Users.UserID]
+}
+
+entity Connections {
+    +ConnectionID : Unique ID [PK]
+    --
+    User1 : Unique ID [FK -> Users.UserID]
+    User2 : Unique ID [FK -> Users.UserID]
+    Status : String (Pending/Accepted)
+}
+
+entity AdminDashboard {
+    +AdminID : Unique ID [PK]
+    --
+    ManageUsers : Boolean
+    ManageJobs : Boolean
+    ManageEvents : Boolean
+}
+
+' Relationships
+Users ||--o{ Applications : applies for
+Users ||--o{ Jobs : posts
+Users ||--o{ Events : organizes
+Users ||--o{ Participants : joins
+Users ||--o{ Chats : starts
+Users ||--o{ Messages : sends
+Users ||--o{ Announcements : posts
+Users ||--o{ Connections : connects with
+Jobs ||--o{ Applications : receives
+Events ||--o{ Participants : has attendees
+Chats ||--o{ Messages : contains
+AdminDashboard ||--|{ Users : manages
+AdminDashboard ||--|{ Jobs : approves/removes
+AdminDashboard ||--|{ Events : approves/removes
+
+@enduml
