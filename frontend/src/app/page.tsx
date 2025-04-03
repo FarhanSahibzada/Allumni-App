@@ -8,7 +8,6 @@ import { StatsSection } from '@/components/Stats-section';
 export default function Page() {
   const router = useRouter();
   // const [loading, setLoading] = useState(false);
-
   // useEffect(() => {
   //   const fetchUser = async () => {
   //     const response = await localStorage.getItem("token");
