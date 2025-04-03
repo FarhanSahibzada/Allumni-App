@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function ReduxProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-    const hidden_Routes = ['/Login' ,'/Register','/'];
+    const hidden_Routes = ['/Login' ,'/Register'];
 
   
   return (

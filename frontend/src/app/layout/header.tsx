@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { motion } from 'framer-motion'
 
+
 interface NavItem {
     title: string
     href: string
@@ -16,7 +17,7 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     { title: "Home", href: "/dashboard", },
-    { title: "About", href: "/about", },
+    { title: "About", href: "/stats", },
     { title: "Events", href: "/events" },
     { title: "Directory", href: "/directory" },
     { title: "Contact", href: "/contact", },
@@ -67,16 +68,15 @@ export function SiteHeader() {
                 <div className="flex items-center gap-4">
                     <Link href="/Login">
                         <Button
-                            variant="outline"
-                            className="border-blue-600 text-blue-600 hover:bg-blue-50 hover:text-blue-800 focus-ring"
+                            className={`border-blue-600 text-blue-600 bg-slate-200   rounded-2xl focus-ring px-2 py-1.5 text-2xl`}
                             aria-label="Sign in to your account"
                         >
-                            Sign In
+                            Join Now
                         </Button>
                     </Link>
                     <Link href="/Register" className="hidden sm:block">
                         <Button
-                            className="bg-green-600 hover:bg-green-700 text-white focus-ring"
+                            className="bg-green-600 hover:bg-green-700 rounded-2xl text-white focus-ring"
                             aria-label="Create a new account"
                         >
                             Sign Up
