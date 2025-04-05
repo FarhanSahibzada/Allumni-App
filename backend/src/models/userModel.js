@@ -21,10 +21,14 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
     },
     cnic:{
-      type:Number,
+      type:String,
       required:[true,"CNIC is required"],
       unique:true,
     },
+    contactNo :{
+      type : String,
+      required : ["contact number is required"]
+    }
   },
   {
     timestamps: true, 

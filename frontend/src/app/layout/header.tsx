@@ -8,7 +8,10 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { motion } from 'framer-motion'
-
+import { AssistantFont } from "@/assests/fonts/fonts"
+import { useSelector } from "react-redux"
+import { RootState } from "../Store/store"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 interface NavItem {
     title: string
@@ -16,16 +19,17 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-    { title: "Home", href: "/dashboard", },
-    { title: "About", href: "/stats", },
-    { title: "Events", href: "/events" },
-    { title: "Directory", href: "/directory" },
-    { title: "Contact", href: "/contact", },
+        { title: "Home", href: "/#home" },
+        { title: "About", href: "/#about" },
+        { title: "Events", href: "/#events" },
+        { title: "Directory", href: "/#directory" },
+        { title: "Contact", href: "/#contact" },
 ]
 
 export function SiteHeader() {
     const pathname = usePathname()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const userLogin = useSelector((state : RootState)=> state.auth.isAuthenticated)
 
     return (
         <header className="sticky top-0 z-40 w-full  bg-linear-90 from-green-100 to-via-white ">
@@ -42,7 +46,7 @@ export function SiteHeader() {
                 </div>
                 <nav className="hidden md:flex items-center gap-6" aria-label="Main Navigation">
                     {navItems.map((item) => {
-                        const isActive = pathname == item.href;
+                        const isActive = item.title.toLowerCase() == item.href.slice(1).toLowerCase()                    
                         return (
                             <Link
                                 key={item.href}
@@ -56,7 +60,7 @@ export function SiteHeader() {
                                 {isActive && (
                                     <motion.div
                                     layoutId="underline"
-                                    className="absolute left-0 bottom-0  h-[2px] w-full bg-red-500"
+                                    className="absolute left-0 bottom-0  h-[2px] w-full bg-black/[0.3]"
                                     transition={{ type: 'spring', stiffness: 50, damping: 10 }}
                                     />
                                 )}
@@ -66,22 +70,34 @@ export function SiteHeader() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <Link href="/Login">
+                    {userLogin ? (
+                     <Avatar>
+                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                     <AvatarFallback>CN</AvatarFallback>
+                   </Avatar>
+                        ): (
+                            <>
+                            <Link href="/Register">
                         <Button
-                            className={`border-blue-600 text-blue-600 bg-slate-200   rounded-2xl focus-ring px-2 py-1.5 text-2xl`}
+                        
+                            className={`text-black/[0.3] cursor-pointer hover:bg-slate-200  bg-transparent
+                          ${AssistantFont.className} rounded-full focus-ring px-2 py-2 md:py-6  text-lg transform scale-[1.1] ease-out focus:scale-[1]`}
                             aria-label="Sign in to your account"
                         >
                             Join Now
                         </Button>
                     </Link>
-                    <Link href="/Register" className="hidden sm:block">
+                    <Link href="/Login" className="hidden sm:block">
                         <Button
-                            className="bg-green-600 hover:bg-green-700 rounded-2xl text-white focus-ring"
+                            className={`border-2 ${AssistantFont.className} cursor-pointer border-blue-300 text-blue-300 rounded-full px-3 py-5 bg-transparent
+                             hover:bg-slate-200 focus-ring text-lg transform scale-[1.1] ease-out focus:scale-[1]`}
                             aria-label="Create a new account"
                         >
-                            Sign Up
+                            Sign In
                         </Button>
                     </Link>
+                </>
+                )}
                     <Button
                         variant="ghost"
                         size="icon"
@@ -117,9 +133,10 @@ export function SiteHeader() {
                                     {item.title}
                                 </Link>
                             ))}
-                            <Link href="/Login" className="sm:hidden">
+                            <Link href="/Login" className="sm:hidden px-8">
                                 <Button
-                                    className="w-full bg-green-600 hover:bg-green-700 text-white"
+                                    className="w-full border-2 ${AssistantFont.className} cursor-pointer border-blue-300 text-blue-300 rounded-full px-2 py-5 bg-transparent
+                             hover:bg-slate-200 focus-ring text-xl transform scale-[1.1] ease-out focus:scale-[1]"
                                     aria-label="Create a new account"
                                 >
                                     Sign In

@@ -60,7 +60,7 @@ export default function SignInPage() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="min-h-screen gradient-primary flex items-center justify-center p-4">
+      <div className="min-h-screen bg-slate-100/[0.3]  flex items-center justify-center p-4">
         <Card className="mx-auto max-w-sm w-full border-2 border-alumni-blue/20 shadow-lg">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold text-center text-alumni-blue">Welcome Back</CardTitle>

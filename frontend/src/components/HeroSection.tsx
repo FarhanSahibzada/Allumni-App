@@ -62,10 +62,10 @@ export function HeroSection() {
         </div>
         <div className="mt-12 flex justify-center">
           <motion.a
-            href="#stats"
+            href="#about"
             onClick={(e) => {
               e.preventDefault();
-              const section = document.getElementById('stats');
+              const section = document.getElementById('about');
               if (section) {
                 section.scrollIntoView({
                   behavior: "smooth"

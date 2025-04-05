@@ -1,8 +1,13 @@
 import { Users, GraduationCap, Globe, Award } from "lucide-react";
+import {useInView} from 'framer-motion'
+import AnimationCounter from "./AnimationCounter";
 
 export function StatsSection() {
+
+  
+
   return (
-    <section id="stats" className="w-full py-12 md:py-24 bg-white border-y border-gray-200">
+    <section id="about" className="w-full py-12 md:py-24 bg-white border-y border-gray-200">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2 max-w-[800px]">
@@ -18,7 +23,7 @@ export function StatsSection() {
               <Users className="h-6 w-6 text-green-600" aria-hidden="true" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl">50K+</h3>
+              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl"><AnimationCounter from={0} to={50} />K</h3>
               <p className="text-sm text-gray-600 md:text-base">Active Alumni</p>
             </div>
           </div>
@@ -28,7 +33,7 @@ export function StatsSection() {
               <GraduationCap className="h-6 w-6 text-blue-600" aria-hidden="true" />
             </div>
             <div className="space-y-1 ">
-              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl">75+</h3>
+              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl"><AnimationCounter from={0} to={75} />+</h3>
               <p className="text-sm text-gray-600 md:text-base">Years of Excellence</p>
             </div>
           </div>
@@ -38,7 +43,7 @@ export function StatsSection() {
               <Globe className="h-6 w-6 text-green-600" aria-hidden="true" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl">120+</h3>
+              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl"><AnimationCounter from={0} to={120} />+</h3>
               <p className="text-sm text-gray-600 md:text-base">Countries Represented</p>
             </div>
           </div>
@@ -48,7 +53,7 @@ export function StatsSection() {
               <Award className="h-6 w-6 text-blue-600" aria-hidden="true" />
             </div>
             <div className="space-y-1">
-              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl">500+</h3>
+              <h3 className="text-2xl font-bold text-blue-600 md:text-3xl"><AnimationCounter from={0} to={500} />+</h3>
               <p className="text-sm text-gray-600 md:text-base">Distinguished Alumni</p>
             </div>
           </div>

@@ -7,7 +7,7 @@ dotenv.config();
 
 export const signUp = async (req, res) => {
   try {
-    const { name, email, password,cnic } = req.body;
+    const { name, email, password,cnic, contactNo } = req.body;
     const existingUser = await User.findOne({ cnic});
     if (existingUser) {
       return res.status(400).json({ status: 400, message: "User already registered" });
@@ -19,6 +19,7 @@ export const signUp = async (req, res) => {
       email,
       password: hashedPassword,
       cnic,
+      contactNo
     });
     res.status(201).json({ status: 201, message: "Registration successful", data: newUser });
   } catch (error) {
