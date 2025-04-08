@@ -32,7 +32,7 @@ export function SiteHeader() {
     const userLogin = useSelector((state : RootState)=> state.auth.isAuthenticated)
 
     return (
-        <header className="sticky top-0 z-40 w-full  bg-linear-90 from-green-100 to-via-white ">
+        <header className="sticky top-0 z-40 w-full flex justify-center  bg-linear-90 from-green-100 to-via-white ">
             <div className="container flex h-16 px-4 items-center justify-between">
                 <div>
                     <Image

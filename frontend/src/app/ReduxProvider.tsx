@@ -12,7 +12,7 @@ export default function ReduxProvider({ children }: { children: React.ReactNode 
   
   return (
     <Provider store={store}>
-      <div className="relative flex min-h-screen flex-col">
+      <div className="relative w-full overflow-x-hidden flex min-h-screen flex-col justify-center items-center">
          {!hidden_Routes.includes(pathname) && <SiteHeader />}
         <main className="flex-1">{children}</main>
       </div>

@@ -1,46 +1,29 @@
-// "use client"
-// import { useRouter } from 'next/navigation'
-// import React, { useEffect, useState } from 'react'
-// import  Loading  from "../components/Loading"
-// import { HeroSection } from '@/components/HeroSection';
-// import { StatsSection } from '@/components/Stats-section';
-// import LocomotiveScroll from 'locomotive-scroll';
-
-// export default function Page() {
-//   const router = useRouter();
-//   const locomotive  = new LocomotiveScroll();
-
- 
-//   return(
-//     <>
-//     <HeroSection />
-//     <StatsSection />
-//     </>
-//   )
-// }
-
 "use client"
 import { useEffect } from 'react';
-import LocomotiveScroll from 'locomotive-scroll';
 import { HeroSection } from '@/components/HeroSection';
 import { StatsSection } from '@/components/Stats-section';
 import { FeaturesSection } from '@/components/Feature-section';
 
 export default function Page() {
-  // useEffect(() => {
-  //   const locomotive = new LocomotiveScroll({
-  //     el: document.querySelector('.scroll-container'), // Ensure you have a container to apply the scroll
-  //     smooth: true,
-  //   });
+ 
+  useEffect(() => {
+    // Dynamically import Locomotive Scroll and initialize it
+    (async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default;
+      const scroll = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true, 
+        multiplier: 2, 
+        class: 'is-inview', 
+      });
 
-  //   // Cleanup on component unmount
-  //   return () => {
-  //     locomotive.destroy();
-  //   };
-  // }, []); // Empty dependency array means this runs once after component mounts
+    
+      return () => scroll.destroy();
+    })();
+  }, []);
 
   return (
-    <div className="scroll-container">
+    <div >
       <HeroSection />
       <StatsSection />
       <FeaturesSection />
