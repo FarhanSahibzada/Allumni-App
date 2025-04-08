@@ -1,13 +1,9 @@
 import { Users, GraduationCap, Globe, Award } from "lucide-react";
-import {useInView} from 'framer-motion'
 import AnimationCounter from "./AnimationCounter";
 
 export function StatsSection() {
-
-  
-
   return (
-    <section id="about" className="w-full py-12 md:py-24 bg-white border-y border-gray-200">
+    <section   id="about" className="w-[100vw] flex justify-center py-12 md:py-24 bg-white border-y border-gray-200">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2 max-w-[800px]">
@@ -18,6 +14,7 @@ export function StatsSection() {
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-6 py-12 md:grid-cols-4">
+          {/* first card */}
           <div className="flex flex-col  items-center space-y-2 text-center">
             <div className="rounded-full bg-green-100 p-4">
               <Users className="h-6 w-6 text-green-600" aria-hidden="true" />
@@ -28,6 +25,7 @@ export function StatsSection() {
             </div>
           </div>
 
+          {/* second card */}
           <div className="flex flex-col items-center space-y-2 text-center ">
             <div className="rounded-full bg-blue-100 p-4">
               <GraduationCap className="h-6 w-6 text-blue-600" aria-hidden="true" />
@@ -38,6 +36,7 @@ export function StatsSection() {
             </div>
           </div>
 
+          {/* third  card */}
           <div className="flex flex-col items-center space-y-2 text-center">
             <div className="rounded-full bg-green-100 p-4">
               <Globe className="h-6 w-6 text-green-600" aria-hidden="true" />
@@ -48,6 +47,7 @@ export function StatsSection() {
             </div>
           </div>
 
+          {/* fourth  card */}
           <div className="flex flex-col items-center space-y-2 text-center">
             <div className="rounded-full bg-blue-100 p-4">
               <Award className="h-6 w-6 text-blue-600" aria-hidden="true" />

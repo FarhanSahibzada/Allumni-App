@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 
 export function HeroSection() {
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-100 via-white to-blue-300">
+    <section data-scroll-container className="w-[100vw] flex justify-center py-12 md:py-24 lg:py-32 bg-gradient-to-br from-green-100 via-white to-blue-300">
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
           <div className="flex flex-col justify-center items-center space-y-4">
@@ -16,7 +16,7 @@ export function HeroSection() {
               <div className="inline-block rounded-lg bg-green-500 px-3 py-1 font-bold text-sm text-white">
                 Welcome Alumni
               </div>
-              <h1 className="text-3xl font-bold tracking-tighter text-blue-600 sm:text-5xl xl:text-6xl/none">
+              <h1  className="text-3xl font-bold tracking-tighter text-blue-600 sm:text-5xl xl:text-6xl/none">
                 Connect with your Alumni Network
               </h1>
               <p className="max-w-[600px] text-gray-600 md:text-xl">

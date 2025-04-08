@@ -2,7 +2,7 @@ import { GraduationCap, Users, Calendar, BookOpen, Award, Globe } from "lucide-r
 
 export function FeaturesSection() {
   return (
-    <section id="events" className="w-full py-12 md:py-24 lg:py-32 bg-white">
+    <section id="events" className="w-[100vw] flex justify-center py-12 md:py-24 lg:py-32 bg-white">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
@@ -14,6 +14,7 @@ export function FeaturesSection() {
           </div>
         </div>
         <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+       {/* first card */}
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-green-50">
             <div className="rounded-full bg-alumni-green-100 p-4">
               <Users className="h-6 w-6 text-alumni-green" aria-hidden="true" />
@@ -23,7 +24,8 @@ export function FeaturesSection() {
               Find and connect with fellow graduates from your class and beyond.
             </p>
           </div>
-          <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-green-50">
+       {/* second card */}
+          <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-blue-50">
             <div className="rounded-full bg-alumni-blue-100 p-4">
               <Calendar className="h-6 w-6 text-alumni-blue" aria-hidden="true" />
             </div>
@@ -32,6 +34,7 @@ export function FeaturesSection() {
               Stay updated on upcoming reunions, networking events, and campus activities.
             </p>
           </div>
+       {/* third card */}
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-green-50">
             <div className="rounded-full bg-alumni-green-100 p-4">
               <BookOpen className="h-6 w-6 text-alumni-green" aria-hidden="true" />
@@ -41,6 +44,7 @@ export function FeaturesSection() {
               Share your expertise or find a mentor to guide your career journey.
             </p>
           </div>
+       {/* fourth card */}
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-blue-50">
             <div className="rounded-full bg-alumni-blue-100 p-4">
               <Award className="h-6 w-6 text-alumni-blue" aria-hidden="true" />
@@ -50,6 +54,8 @@ export function FeaturesSection() {
               Celebrate and showcase the accomplishments of our distinguished alumni.
             </p>
           </div>
+       {/* fifth card */}
+     
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-green-50">
             <div className="rounded-full bg-alumni-green-100 p-4">
               <Globe className="h-6 w-6 text-alumni-green" aria-hidden="true" />
@@ -59,6 +65,7 @@ export function FeaturesSection() {
               Connect with alumni across the globe and expand your professional network.
             </p>
           </div>
+       {/* sixth card */}
           <div className="flex flex-col items-center space-y-2 rounded-lg border p-6 transition-all hover:shadow-md hover:bg-blue-50">
             <div className="rounded-full bg-alumni-blue-100 p-4">
               <GraduationCap className="h-6 w-6 text-alumni-blue" aria-hidden="true" />
